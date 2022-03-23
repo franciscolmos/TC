@@ -16,9 +16,11 @@ public class App {
         compiladoresLexer lexer = new compiladoresLexer(input);
         
         // create a buffer of tokens pulled from the lexer
+        // Entra texto -> Salen tokens
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         
         // create a parser that feeds off the tokens buffer
+        // El parser es el analizador sintáctico
         compiladoresParser parser = new compiladoresParser(tokens);
                 
         // create Listener
