@@ -5,9 +5,9 @@ package compiladores;
 }
 
 
+// # ----------------------------------------------------------------------------------------------------------
+// # Primera clase
 /* 
- # Primera clase
-
 DIGITO : '0' | '1' | '2' | ... | '9'  Así se debería escribir si no exiestiera el operador [] -->  DIGITO : [0-9] (No hay metacaracteres dentro de  [], salvo el  - (ion))
 
 fragment LETRA : [A-Za-z] ; 
@@ -29,9 +29,9 @@ WS : [\t\n\r] -> skip; // Saltea los saltos de linea, espacios en blanco, y reto
   ;
 */
 
-
-//Paréntesis, corchetes y llaves balanceadas
-
+// # ----------------------------------------------------------------------------------------------------------
+// # Paréntesis, corchetes y llaves balanceadas
+/*
 PA: '(';
 PC: ')';
 CA: '[';
@@ -39,24 +39,21 @@ CC: ']';
 LA: '{';
 LC: '}';
 
-// declaracion: TIPO VARIABLE
-
-
-/* 
 si : s EOF;
 
 s : PA s PC s
   | CA s CC s
   | LA s LC s
   |
-  ;  */
+  ;  
+*/
 
-
-/* 
+ // # ----------------------------------------------------------------------------------------------------------
  // # Fechas con meses pares
  // # Horas entre 8:00 - 12:59
  // # Horas entre 18:30 - 21:30
 
+/*
 FECHAPAR : (('0'[1-9]|[12][0-9]|'3'[0])'/'('0'[246])|('0'[1-9]|[12][0-9]|'3'[0-1])'/'('0'[8]|'1'[02]))'/'[0-9][0-9][0-9][0-9];
 HORA1 : ('0'[8-9]|'1'[0-2])':'([012345][0-9]);
 HORA2 : ([1][8]':'[345][0-9])|(([1][9]|[2][0])':'[012345][0-9])|([2][1]':'([012][0-9]|[3][0]));
@@ -68,68 +65,73 @@ s : FECHAPAR { System.out.println("FECHAPAR ->" + $FECHAPAR.getText() + "<--"); 
   | HORA1 { System.out.println("HORA1 ->" + $HORA1.getText() + "<--"); }s
   | HORA2 { System.out.println("HORA2 ->" + $HORA2.getText() + "<--"); }s
   | OTRO { System.out.println("Otro ->" + $OTRO.getText() + "<--"); }s
-  | EOF;  */
+  | EOF;  
+*/
 
-  /* declaracion -> int x;
-                double y;
-                int z = 0;
-                double w, q, t;
-                int a = 5, b, c = 10;
+// # ----------------------------------------------------------------------------------------------------------
+// # INSTRUCCIONES SIMPLES
+/*
+fragment LETRA : [A-Za-z] ;
+fragment DIGITO : [0-9] ;
+ASIGN : '=';
+PUNTOYCOMA : ';';
+INT : 'int';
+DOUBLE : 'double';
+COMA : ',';
+WHILE : 'while';
+PA: '(';
+PC: ')';
+CA: '[';
+CC: ']';
+LA: '{';
+LC: '}';
+ENTERO : DIGITO+;
+VARIABLE : (LETRA | '_')(LETRA | DIGITO | '_')* ;
+WS : [ \t\n\r] -> skip;
 
-  asignacion -> x = 1;
-                z = y; */
+programa : instrucciones EOF;
 
-  fragment LETRA : [A-Za-z] ;
-  fragment DIGITO : [0-9] ;
-  ASIGN : '=';
-  PUNTOYCOMA : ';';
-  INT : 'int';
-  DOUBLE : 'double';
-  COMA : ',';
-  WHILE : 'while';
-  ENTERO : DIGITO+;
-  VARIABLE : (LETRA | '_')(LETRA | DIGITO | '_')* ;
-  WS : [ \t\n\r] -> skip;
-
-  programa : instrucciones EOF;
-
-  instrucciones : instruccion instrucciones
-               | bloque instrucciones
-               |
-               ;
-  
-  instruccion : asignacion PUNTOYCOMA
-              | declaraciones PUNTOYCOMA
-              | iwhile
+instrucciones : instruccion instrucciones
+              | bloque instrucciones
+              |
               ;
 
-  asignacion : VARIABLE ASIGN opal;
+instruccion : asignacion PUNTOYCOMA
+            | declaraciones PUNTOYCOMA
+            | iwhile
+            ;
 
-  opal : VARIABLE | ENTERO; // de momento solo es variable o entero
+asignacion : VARIABLE ASIGN opal;
 
-  declaraciones : definicion
-                | declaracion_simple
-                | declaracion_lista
-                | declaracion_lista_asignacion
-                ;
+opal : VARIABLE | ENTERO; // de momento solo es variable o entero
 
-  definicion : tipo VARIABLE; // int x;
+declaraciones : definicion
+              | declaracion_simple
+              | declaracion_lista
+              | declaracion_lista_asignacion
+              ;
 
-  tipo : INT | DOUBLE;
+definicion : tipo VARIABLE; // int x;
 
-  declaracion_simple : tipo asignacion; // int x = 1;
+tipo : INT | DOUBLE;
 
-  declaracion_lista : tipo lista; // int x, y, x;
+declaracion_simple : tipo asignacion; // int x = 1;
 
-  declaracion_lista_asignacion : declaracion_simple COMA lista asignacion; // int x = 10, y, z = 20;
+declaracion_lista : tipo lista; // int x, y, x;
 
-  lista: VARIABLE COMA? lista |; // a, b, c
+declaracion_lista_asignacion : declaracion_simple COMA lista asignacion; // int x = 10, y, z = 20;
 
-  iwhile: WHILE PA comparacion PC bloque;
+lista: VARIABLE COMA? lista |; // a, b, c
 
-  comparacion: (VARIABLE | ENTERO) operadores (VARIABLE | ENTERO);
+iwhile: WHILE PA comparacion PC bloque;
 
-  operadores: '==' | '!=' | '<=' | '>=' | '<' | '>';
+comparacion: (VARIABLE | ENTERO) operadores (VARIABLE | ENTERO);
 
-  bloque : LA instrucciones LC ;
+operadores: '==' | '!=' | '<=' | '>=' | '<' | '>';
+
+bloque : LA instrucciones LC ;
+
+*/
+
+// # ----------------------------------------------------------------------------------------------------------
 
