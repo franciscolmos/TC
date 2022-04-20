@@ -1,0 +1,10 @@
+while (1 < x) {
+    int x;
+    double y;
+    int x = 1;
+    int x, y, z;
+    int a = 5, b, c = 10;
+    x = 1;
+    y = x;
+    z = 9;
+}
