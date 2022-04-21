@@ -10,10 +10,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         // System.out.println("Hello, Compilador!!!");
         // create a CharStream that reads from file
-        //CharStream input = CharStreams.fromFileName("input/entrada.txt");
-        // CharStream input = CharStreams.fromFileName("input/programa.txt");
-        // CharStream input = CharStreams.fromFileName("input/parentesis.txt");
-        CharStream input = CharStreams.fromFileName("input/instrucciones-simples.txt");
+        CharStream input = CharStreams.fromFileName("input/opal.txt");
 
         // create a lexer that feeds off of input CharStream
         compiladoresLexer lexer = new compiladoresLexer(input);
