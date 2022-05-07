@@ -29,7 +29,7 @@ WS : [ \t\n\r] -> skip;
 
 programa : opal EOF;
 
-opal : term and;
+opal : term or;
 
 term : factor t;
 
@@ -62,6 +62,14 @@ and : comp a
     ;
 
 a : AND term and
+  |
+  ;
+
+or : and o
+   |
+   ;
+
+o : OR term or
   |
   ;
 
