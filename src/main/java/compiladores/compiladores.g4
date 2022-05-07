@@ -91,7 +91,7 @@ iif: IF PA opal PC (bloque|ins_simple);
 
 ifor : FOR PA condicion_for PC (bloque|ins_simple);
 
-condicion_for : (ID | asignacion+) PUNTOYCOMA opal PUNTOYCOMA asignacion+;
+condicion_for : (ID? | asignacion?) PUNTOYCOMA opal PUNTOYCOMA asignacion?;
 
 esructura_control : iwhile
                   | iif

@@ -5,7 +5,7 @@ int probandoFuncion(int x, double y){
         double j = 1 + 2 * 3 && 1 || 1 == 2;
         z = j;
     }
-    for(i; i< 2; i=i+1){
+    for(; i< 2; i=i+1){
         double l = 1 + 2 == 3 || 1 + 4 >  4;
         if(l){
             l = 10;
