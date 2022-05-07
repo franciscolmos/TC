@@ -29,7 +29,7 @@ WS : [ \t\n\r] -> skip;
 
 programa : opal EOF;
 
-opal : term comp;
+opal : term and;
 
 term : factor t;
 
@@ -42,7 +42,7 @@ t : MULT factor t
   | DIV factor t
   | MOD factor t
   |
-  ; 
+  ;
 
 exp : SUMA term exp
     | RESTA term exp
@@ -56,5 +56,14 @@ comp : exp c
 c : comparador term exp
   |
   ;
+
+and : comp a
+    |
+    ;
+
+a : AND term and
+  |
+  ;
+
 
 
