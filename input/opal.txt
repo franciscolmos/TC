@@ -1,19 +1,6 @@
-int probandoFuncion(int, double);
-int probandoFuncion(int x, double y){
-    while(x > 2 && y < 3){
-        int z = 0;
-        double j = 1 + 2 * 3 && 1 || 1 == 2;
-        z = j;
-    }
-    for(; i< 2; i=i+1){
-        double l = 1 + 2 == 3 || 1 + 4 >  4;
-        if(l){
-            l = 10;
-        }
-    }
-    if(l == 10){
-        l = 11;
+{
+    int primero = 0;
+    {
+        int ultimo = 1;
     }
 }
-
-double m = probandoFuncion(1, 4);
