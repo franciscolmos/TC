@@ -1,6 +1,7 @@
 package compiladores;
 
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 import compiladores.compiladoresParser.BloqueContext;
 import compiladores.compiladoresParser.ProgramaContext;
@@ -21,11 +22,19 @@ public class miListener extends compiladoresBaseListener {
         bloque--;
     }
 
-    
-
     @Override
     public void enterEveryRule(ParserRuleContext ctx) {
         count++;
+    }
+
+    @Override
+    public void enterPrograma(ProgramaContext ctx) {
+        System.out.println("INICIO DEL PARSEO");
+    }
+
+    @Override
+    public void visitTerminal(TerminalNode node) {
+        System.out.println("TEXTO DEL NODO: " + node.getSymbol().getText());
     }
 
     @Override
