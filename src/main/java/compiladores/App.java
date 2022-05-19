@@ -1,6 +1,5 @@
 package compiladores;
 
-import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -10,7 +9,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         // System.out.println("Hello, Compilador!!!");
         // create a CharStream that reads from file
-        CharStream input = CharStreams.fromFileName("input/opal.txt");
+        CharStream input = CharStreams.fromFileName("input/listener.txt");
 
         // create a lexer that feeds off of input CharStream
         compiladoresLexer lexer = new compiladoresLexer(input);

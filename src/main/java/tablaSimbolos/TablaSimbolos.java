@@ -1,21 +1,34 @@
 package tablaSimbolos;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class TablaSimbolos {
 
     List<Map<String, ID>>  simbolos;
 
-    public TablaSimbolos() {
+    
+
+    public List<Map<String, ID>> getSimbolos() {
+        return simbolos;
     }
 
-    void addConexto(){
+    public void setSimbolos(List<Map<String, ID>> simbolos) {
+        this.simbolos = simbolos;
+    }
 
+    public TablaSimbolos() {
+        this.simbolos = new LinkedList<>();
+    }
+
+    public void addContexto(){
+        simbolos.add(new TreeMap<String, ID>());
     };
 
-    void delContexto(){
-
+    public void delContexto(){
+        simbolos.remove(simbolos.size() - 1);
     };
 
     ID searchID (String id){

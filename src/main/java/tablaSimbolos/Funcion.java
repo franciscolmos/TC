@@ -11,5 +11,4 @@ public class Funcion extends ID {
         super.inicializado = inicializado == ';';
         this.args = args;
     }
-    
 }
